@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:movie2you/app/pages/details_page.dart';
 import 'package:movie2you/app/pages/home_page.dart';
 import 'package:movie2you/app/routes.dart';
@@ -19,13 +21,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
         scaffoldBackgroundColor: const Color.fromRGBO(28, 26, 41, 1),
         textTheme: const TextTheme(
-          headline5: TextStyle(
-            color: Colors.white,
-          ),
-          headline6: TextStyle(
-            color: Colors.white
-          )
-        ),
+            headline5: TextStyle(
+              color: Colors.white,
+            ),
+            headline6: TextStyle(color: Colors.white)),
       ),
       routes: {
         Routes.HOME: (ctx) => const HomePage(),

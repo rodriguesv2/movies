@@ -73,7 +73,6 @@ class _DetailsPageState extends State<DetailsPage> {
 
   Widget _detailsScreen() {
     final details = controller.details;
-    print(details.toString());
 
     return details == null
         ? _tryAgainError()
@@ -237,6 +236,21 @@ class _DetailsPageState extends State<DetailsPage> {
                     ],
                   ),
                 ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: 16,
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
               ),
             ),
           ],

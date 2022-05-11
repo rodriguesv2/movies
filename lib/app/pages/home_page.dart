@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:movie2you/app/components/movie_list_category.dart';
 import 'package:movie2you/app/components/movie_poster.dart';
 import 'package:movie2you/app/components/simple_single_sliver_list.dart';
@@ -20,32 +21,35 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: SizedBox(
-        height: size.height,
-        width: size.width,
-        child: CustomScrollView(
-          slivers: [
-            SliverList(
-              delegate: SliverChildListDelegate(
-                [
-                  const SizedBox(
-                    height: 23,
-                  ),
-                  SizedBox(
-                    width: 82,
-                    height: 71,
-                    child: Image.asset("lib/assets/images/movie_logo.png"),
-                  ),
-                ],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Scaffold(
+        body: SizedBox(
+          height: size.height,
+          width: size.width,
+          child: CustomScrollView(
+            slivers: [
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    const SizedBox(
+                      height: 23,
+                    ),
+                    SizedBox(
+                      width: 82,
+                      height: 71,
+                      child: Image.asset("lib/assets/images/movie_logo.png"),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            ValueListenableBuilder<HomeState>(
-              builder: (ctx, value, child) =>
-                  _switchState(value, context, size),
-              valueListenable: controller.state,
-            ),
-          ],
+              ValueListenableBuilder<HomeState>(
+                builder: (ctx, value, child) =>
+                    _switchState(value, context, size),
+                valueListenable: controller.state,
+              ),
+            ],
+          ),
         ),
       ),
     );
