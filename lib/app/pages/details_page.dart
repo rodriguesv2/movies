@@ -279,9 +279,11 @@ class _DetailsPageState extends State<DetailsPage> {
             Row(
               children: [
                 Image.asset("lib/assets/images/star.png"),
-                Text(
-                  "${details.voteAverage} / 10 Média de Votos",
-                  style: const TextStyle(color: Colors.white54),
+                Expanded(
+                  child: Text(
+                    "${details.voteAverage} / 10 Média de Votos",
+                    style: const TextStyle(color: Colors.white54),
+                  ),
                 ),
               ],
             ),
